@@ -36,11 +36,9 @@ export default function SmartCTA({ className = "", variant = "primary" }: SmartC
         <button
           onClick={() => setIsModalOpen(true)}
           className={`${baseStyles} ${appliedStyle} ${className}`}
+          aria-label={label}
         >
           {label}
-          <span className="ml-1 text-[10px] opacity-70">
-             🇪🇸
-          </span>
         </button>
         
         <WaitlistModal 
