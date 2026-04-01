@@ -1,13 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useLanguage } from "@/components/LanguageContext";
+import SmartCTA from "@/components/SmartCTA";
 
 export default function ComprarPage() {
   const { content } = useLanguage();
   const {
-    amazonUrl,
     pages: { shop: t },
   } = content;
 
@@ -43,14 +42,7 @@ export default function ComprarPage() {
                 ))}
               </ul>
               <div className="pt-4">
-                <Link
-                  href={amazonUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-rose-220 px-8 py-3 text-sm font-serif font-semibold uppercase tracking-[0.12em] text-ink-900 shadow-[0_20px_45px_-24px_rgba(176,117,98,0.55)] transition hover:-translate-y-0.5 hover:bg-rose-260"
-                >
-                  {t.amazonButton}
-                </Link>
+                <SmartCTA className="w-fit" />
                 <div className="mt-6 rounded-[16px] border border-mist-160/60 bg-white/60 p-4 text-xs text-ink-500">
                   <p className="font-semibold uppercase tracking-wider mb-1">
                     {t.secureTitle}

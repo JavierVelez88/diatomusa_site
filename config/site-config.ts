@@ -1,13 +1,13 @@
 export const SITE_CONFIG = {
   // Mode: 'LIVE' | 'PRE_LAUNCH'
-  mode: 'PRE_LAUNCH' as const,
+  mode: 'LIVE' as const,
   launchDate: 'Primavera 2026',
-  amazonUrl: "https://www.amazon.es/dp/B0DJVDMH7V", // URL real o placeholder
-  preLaunchUrl: "#newsletter", // A dónde lleva el botón en pre-launch (puede ser un anchor o mailto)
+  amazonUrl: "https://www.amazon.es/dp/B0G4RVPJGT", // URL genérica base
+  preLaunchUrl: "#newsletter",
   contactEmail: "jvelez@diatomusa.com"
 };
 
 export const CTA_TEXT = {
-  LIVE: "Comprar en Amazon",
+  LIVE: "Comprar en Amazon - 39,99 €",
   PRE_LAUNCH: "Notificarme del Lanzamiento",
 };

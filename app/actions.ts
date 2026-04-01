@@ -41,7 +41,6 @@ export async function subscribeAction(formData: FormData) {
         ON CONFLICT (email) DO NOTHING;
       `;
     } catch (dbError) {
-      console.error("DB Error:", dbError);
       // Continue even if DB fails, to verify email logic (or return error)
     }
 
@@ -57,7 +56,6 @@ export async function subscribeAction(formData: FormData) {
 
     return { success: true, message: "¡Gracias! Te avisaremos pronto." };
   } catch (error) {
-    console.error("Subscription error:", error);
     return { success: false, message: "Hubo un error al procesar tu solicitud." };
   }
 }
@@ -91,12 +89,11 @@ export async function sendContactEmail(formData: FormData) {
         `,
       });
     } else {
-        console.log("RESEND_API_KEY missing, logging to console:", { userEmail, message });
+        // En prod, no loguear al faltar apiKey a menos que sea debug
     }
 
     return { success: true, message: "Mensaje enviado correctamente." };
   } catch (error) {
-    console.error("Contact email error:", error);
     return { success: false, message: "Error al enviar el mensaje." };
   }
 }

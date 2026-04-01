@@ -15,7 +15,7 @@ export default function SmartCTA({ className = "", variant = "primary" }: SmartC
   const { content } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
   
-  const isPreLaunch = SITE_CONFIG.mode === "PRE_LAUNCH";
+  const isPreLaunch = (SITE_CONFIG.mode as string) === "PRE_LAUNCH";
   // The logic for label is now dynamic based on content
   const label = isPreLaunch ? content.smartCTA.preLaunch : content.smartCTA.live;
   
@@ -29,35 +29,21 @@ export default function SmartCTA({ className = "", variant = "primary" }: SmartC
 
   const appliedStyle = variant === "sticky" ? variants.sticky : (variant === "secondary" ? variants.secondary : variants.primary);
 
-  // If in PRE_LAUNCH mode, we use a button to open the modal
-  if (isPreLaunch) {
-    return (
-      <>
-        <button
-          onClick={() => setIsModalOpen(true)}
-          className={`${baseStyles} ${appliedStyle} ${className}`}
-          aria-label={label}
-        >
-          {label}
-        </button>
-        
-        <WaitlistModal 
-          isOpen={isModalOpen} 
-          onClose={() => setIsModalOpen(false)} 
-        />
-      </>
-    );
-  }
-
-  // If in LIVE mode, standard link to Amazon
+  // Con la nueva arquitectura de comercio vivo (3 enlaces), SmartCTA siempre abre el modal.
   return (
-    <Link
-      href={SITE_CONFIG.amazonUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`${baseStyles} ${appliedStyle} ${className}`}
-    >
-      {label}
-    </Link>
+    <>
+      <button
+        onClick={() => setIsModalOpen(true)}
+        className={`${baseStyles} ${appliedStyle} ${className}`}
+        aria-label={label}
+      >
+        {label}
+      </button>
+      
+      <WaitlistModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
+    </>
   );
 }

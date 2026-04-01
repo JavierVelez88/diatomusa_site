@@ -37,8 +37,8 @@ export default function ContactModal({ isOpen, onClose, founderName, founderEmai
       if (result.success) {
         setSuccess(true);
         setTimeout(() => {
-          onClose();
           setSuccess(false); 
+          onClose();
         }, 3000);
       } else {
         setError(result.message || "Ocurrió un error.");
@@ -62,6 +62,7 @@ export default function ContactModal({ isOpen, onClose, founderName, founderEmai
       <div className="relative w-full max-w-md overflow-hidden rounded-[2rem] border border-mist-160/60 bg-white/95 p-8 shadow-2xl ring-1 ring-white/50 backdrop-blur-xl sm:p-10">
         <button 
           onClick={onClose}
+          aria-label="Cerrar formulario de contacto"
           className="absolute right-4 top-4 rounded-full p-2 text-ink-400 transition-colors hover:bg-mist-40 hover:text-ink-900"
         >
           <X className="h-5 w-5" />

@@ -10,7 +10,7 @@ export type Content = {
   faqs: { question: string; answer: string }[];
   reviews: { name: string; quote: string }[];
   heroStory: { title: string; paragraphs: string[] };
-  colorVariants: { name: string; image: string }[];
+  colorVariants: { name: string; image: string; link?: string }[];
   videos: { src: string; label: string; description: string }[];
   guarantee: { headline: string; points: string[] };
   footer: {
@@ -317,15 +317,17 @@ const es: Content = {
     ],
   },
   colorVariants: [
-    { name: "Rosa", image: "/images/encuentro/encuentro-rosa-packaging.jpg" },
-    { name: "Verde", image: "/images/encuentro/encuentro-verde-packaging.jpg" },
+    { name: "Rosa", image: "/images/encuentro/encuentro-rosa-packaging.jpg", link: "https://www.amazon.es/dp/B0G4RRDJQL" },
+    { name: "Verde", image: "/images/encuentro/encuentro-verde-packaging.jpg", link: "https://www.amazon.es/dp/B0G4RT1JK5" },
     {
       name: "Gris oscuro",
       image: "/images/encuentro/encuentro-gris-oscuro-packaging.jpg",
+      link: "https://www.amazon.es/dp/B0G4RVPJGT"
     },
     {
       name: "Colección",
       image: "/images/encuentro/encuentro-variantes-dimensiones-colores.jpg",
+      link: "https://www.amazon.es/s?k=diatomusa"
     },
   ],
   videos: [
@@ -396,7 +398,7 @@ const es: Content = {
     loading: "Enviando...",
   },
   smartCTA: {
-    live: "Comprar en Amazon",
+    live: "Comprar en Amazon - 39,99 €",
     preLaunch: "Notificarme del Lanzamiento",
   },
   pages: {
@@ -671,15 +673,17 @@ const en: Content = {
     ],
   },
   colorVariants: [
-    { name: "Pink", image: "/images/encuentro/encuentro-rosa-packaging.jpg" },
-    { name: "Green", image: "/images/encuentro/encuentro-verde-packaging.jpg" },
+    { name: "Pink", image: "/images/encuentro/encuentro-rosa-packaging.jpg", link: "https://www.amazon.es/dp/B0G4RRDJQL" },
+    { name: "Green", image: "/images/encuentro/encuentro-verde-packaging.jpg", link: "https://www.amazon.es/dp/B0G4RT1JK5" },
     {
       name: "Dark Grey",
       image: "/images/encuentro/encuentro-gris-oscuro-packaging.jpg",
+      link: "https://www.amazon.es/dp/B0G4RVPJGT"
     },
     {
       name: "Collection",
       image: "/images/encuentro/encuentro-variantes-dimensiones-colores.jpg",
+      link: "https://www.amazon.es/s?k=diatomusa"
     },
   ],
   videos: [
@@ -750,7 +754,7 @@ const en: Content = {
     loading: "Sending...",
   },
   smartCTA: {
-    live: "Buy on Amazon",
+    live: "Buy on Amazon - 39.99 €",
     preLaunch: "Notify Me of Launch",
   },
   pages: {

@@ -3,11 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/components/LanguageContext";
+import SmartCTA from "@/components/SmartCTA";
 
 export default function ProductoPage() {
   const { content } = useLanguage();
   const {
-    amazonUrl,
     benefits,
     colorVariants,
     howItWorks,
@@ -151,14 +151,7 @@ export default function ProductoPage() {
       </section>
 
       <div className="fixed inset-x-4 bottom-4 z-40 flex items-center justify-center lg:inset-x-auto lg:left-1/2 lg:w-auto lg:-translate-x-1/2">
-        <Link
-          href={amazonUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 rounded-full bg-rose-220 px-5 py-2 text-xs font-serif font-semibold uppercase tracking-[0.12em] text-ink-900 shadow-[0_20px_45px_-24px_rgba(176,117,98,0.55)] transition hover:-translate-y-0.5 hover:bg-rose-260"
-        >
-          {t.ctaButton}
-        </Link>
+        <SmartCTA variant="sticky" />
       </div>
     </div>
   );

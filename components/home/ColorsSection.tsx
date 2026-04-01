@@ -24,15 +24,37 @@ export default function ColorsSection() {
             {t.colorsSection.copy}
           </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            {colorVariants.map((variant: { name: string }) => (
-              <div
-                key={variant.name}
-                className="flex items-center justify-between rounded-[18px] border border-mist-160/60 bg-white/70 px-4 py-3 text-sm font-medium text-ink-700"
-              >
-                <span>{variant.name}</span>
-                <span className="h-2 w-2 rounded-full bg-rose-220" />
-              </div>
-            ))}
+            {colorVariants.map((variant: { name: string; link?: string }) => {
+              if (variant.link) {
+                return (
+                  <a
+                    key={variant.name}
+                    href={variant.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex flex-col justify-center rounded-[18px] border border-mist-160/60 bg-white/70 px-5 py-4 transition-all duration-300 hover:-translate-y-1 hover:border-rose-220 hover:bg-white hover:shadow-lg"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-bold text-ink-700 group-hover:text-ink-900">{variant.name}</span>
+                      <span className="h-2 w-2 rounded-full bg-rose-220 transition-transform duration-300 group-hover:scale-150" />
+                    </div>
+                    <span className="mt-2 text-[11px] font-semibold uppercase tracking-wider text-rose-260">
+                      39,99 € • Comprar en Amazon ↗
+                    </span>
+                  </a>
+                );
+              }
+              // Fallback para variantes sin link
+              return (
+                <div
+                  key={variant.name}
+                  className="flex items-center justify-between rounded-[18px] border border-mist-160/60 bg-white/70 px-5 py-4 text-sm font-medium text-ink-700"
+                >
+                  <span>{variant.name}</span>
+                  <span className="h-2 w-2 rounded-full bg-mist-160" />
+                </div>
+              );
+            })}
           </div>
         </div>
 
